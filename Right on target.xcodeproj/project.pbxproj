@@ -13,6 +13,10 @@
 		1B8B42E62811ABD60062CB5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8B42E42811ABD60062CB5A /* Main.storyboard */; };
 		1B8B42E82811ABE20062CB5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8B42E72811ABE20062CB5A /* Assets.xcassets */; };
 		1B8B42EB2811ABE20062CB5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8B42E92811ABE20062CB5A /* LaunchScreen.storyboard */; };
+		1BB3C7902815A80A003499AC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB3C78F2815A809003499AC /* SecondViewController.swift */; };
+		1BB3C79328199543003499AC /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB3C79228199543003499AC /* Game.swift */; };
+		1BB3C795281FF0F0003499AC /* GameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB3C794281FF0F0003499AC /* GameRound.swift */; };
+		1BB3C797281FF110003499AC /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB3C796281FF110003499AC /* Generator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		1B8B42E72811ABE20062CB5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B8B42EA2811ABE20062CB5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B8B42EC2811ABE20062CB5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BB3C78F2815A809003499AC /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		1BB3C79228199543003499AC /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		1BB3C794281FF0F0003499AC /* GameRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRound.swift; sourceTree = "<group>"; };
+		1BB3C796281FF110003499AC /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,27 @@
 		1B8B42DD2811ABD60062CB5A /* Right on target */ = {
 			isa = PBXGroup;
 			children = (
+				1BB3C79128199324003499AC /* Model */,
 				1B8B42DE2811ABD60062CB5A /* AppDelegate.swift */,
 				1B8B42E02811ABD60062CB5A /* SceneDelegate.swift */,
 				1B8B42E22811ABD60062CB5A /* ViewController.swift */,
+				1BB3C78F2815A809003499AC /* SecondViewController.swift */,
 				1B8B42E42811ABD60062CB5A /* Main.storyboard */,
 				1B8B42E72811ABE20062CB5A /* Assets.xcassets */,
 				1B8B42E92811ABE20062CB5A /* LaunchScreen.storyboard */,
 				1B8B42EC2811ABE20062CB5A /* Info.plist */,
 			);
 			path = "Right on target";
+			sourceTree = "<group>";
+		};
+		1BB3C79128199324003499AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1BB3C79228199543003499AC /* Game.swift */,
+				1BB3C794281FF0F0003499AC /* GameRound.swift */,
+				1BB3C796281FF110003499AC /* Generator.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BB3C7902815A80A003499AC /* SecondViewController.swift in Sources */,
+				1BB3C79328199543003499AC /* Game.swift in Sources */,
 				1B8B42E32811ABD60062CB5A /* ViewController.swift in Sources */,
 				1B8B42DF2811ABD60062CB5A /* AppDelegate.swift in Sources */,
+				1BB3C797281FF110003499AC /* Generator.swift in Sources */,
+				1BB3C795281FF0F0003499AC /* GameRound.swift in Sources */,
 				1B8B42E12811ABD60062CB5A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,7 +318,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -302,7 +327,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Dmitriy-Skok.Right-on-target";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -323,7 +348,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -331,7 +357,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Dmitriy-Skok.Right-on-target";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -7,48 +7,42 @@
 
 import UIKit
 
-class ViewController: UIViewController{
+class ViewController: UIViewController {
+    
+    var game: Game!
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var slider: UISlider!
     
-    var number: Int = 0
-    var round: Int = 1
-    var points: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print ("viewDidLoad")
-        number = Int.random(in: 1...50)
-        label.text = String(number)
+        let generator = Generator(startValue: 1, endValue: 50)!
+        game = Game(valueGenerator: generator, rounds: 5)
+        updateLabelWithSecretNumber(newText: String(game.currentRound.currentSecretValue))
     }
     
+//    Проверка выбраного пользователем числа
     @IBAction func checkNumber(_ sender: Any) {
-        let numSlider = Int(slider.value)
-        print(numSlider)
-        if numSlider > number {
-            points += 50 - numSlider + number
-        } else if numSlider < number {
-            points += 50 - numSlider + number
+        game.currentRound.calculateScore(with: Int(slider.value))
+        if game.isGameEnded {
+            showAlertWith(score: game.score)
+            game.restartGame()
         } else {
-            points += 50
+            game.startNewRound()
         }
-        print("Очки \(points)")
-        
-        if round == 5{
-            let alert = UIAlertController(title: "Игра окончена!",
-                                          message: "Вы заработали \(points) очков",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Начать заново",
-                                          style: .default,
-                                          handler: nil))
-            present(alert, animated: true, completion: nil)
-            round = 1
-            points = 0
-        } else {
-            round += 1
-        }
-        number = Int.random(in: 1...50)
-        label.text = String(number)
+        updateLabelWithSecretNumber(newText: String(game.currentRound.currentSecretValue))
+    }
+//    Обновление текста загадного числа
+    private func updateLabelWithSecretNumber(newText: String) {
+        label.text = newText
+    }
+//    Отображение всплывающего окна со счетом
+    private func showAlertWith (score: Int) {
+        let alert = UIAlertController(title: "Игра огончена",
+                                      message: "Вы заработали \(score) очков",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Начать заново", style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
 }
